@@ -70,26 +70,16 @@ void solar_buffs(float comb_date=0.0, int solar=1)
             xsEffectAmount(7, spirit_id, building_id, gen_times, 9);
         }
     }
-    //凶残的狼群
-    static int wolf_hunger = 0;
-    int hunger = 0;
-    if(comb_date>=11.07 || comb_date<=1.20) {
-        //冬季缺少食物，狼群饥饿凶残，攻击力+5
-        hunger = 1;
-        if(wolf_hunger != hunger) {
-            wolf_hunger = hunger;
-            xsEffectAmount(4, 126, 9, 5*wolf_hunger, -1);
-        }
-    }
-    else {//狼群饥饿解除，攻击力-5
-        hunger = -1;
-        if(wolf_hunger != hunger) {
-            wolf_hunger = hunger;
-            xsEffectAmount(4, 126, 9, 5*wolf_hunger, -1);
-        }
+    //冬季凶残的狼群
+    static int wolf_hunger = 0;  int hunger = 0;
+    if(comb_date>=11.07 || comb_date<=1.20) {hunger = 1;}
+    else {hunger = 0-1;}
+    if(wolf_hunger != hunger) 
+    {//冬季缺少食物，狼群饥饿凶残，攻击力+5（非冬季则去除狼攻击增益）
+        wolf_hunger = hunger;
+        xsEffectAmount(4, 126, 9, 4*256+(5*wolf_hunger), -1);
     }
     
     // 更多效果 ...
     
 }
-
