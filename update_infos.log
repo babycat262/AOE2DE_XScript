@@ -1,0 +1,15 @@
+====================  更新日志  ====================
+
+[2024-01-28]
+    添加XS脚本常用基础功能模块：
+    Arrays/    数组相关功能
+    Attributes/Attributes.xs    单位基本属性参考
+    Functions_and_Rules/    函数相关功能模块
+    Math_and_Statistics/    数学与统计学基础
+    Vectors/        向量相关功能
+    examples/        一些XS实用案例
+      "calendar system"    日历更新系统
+      "invest system"    黄金投资复利系统
+      "relic buffs"    圣物驻扎属性增益机制
+      "随机抽卡系统"    卡牌场景中的抽卡机制
+    main.xs        主脚本文件，包含构建Array体系诸多功能的数组管理器array_list，以及一些预定义数组
